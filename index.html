@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
 
@@ -7,13 +8,89 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
+    <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#config-web-app -->
-</head>
-<body>
-    
-</body>
-</html>
 
+    <!--Bootstrap links-->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <!--CSS link-->
+    <link rel="stylesheet" href="C:\Users\s_mar\GroupProject1\groupproject1\assets\css\style.css">
+</head>
+
+<body>
+    <!--main container-->
+     <div class="container-fluid">
+        <!--Card that will hold the weather app-->
+        <div class="card" style="width:18rem; float:right;">
+            <div class="card-header">
+                Weather
+            </div>
+            <div class="card-body">
+                <!--WEATHER API DISPLAY HERE-->
+            </div>
+        </div>
+        <!--Jumbotron-->
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Know a Hero</h1>
+            </div>
+        </div>
+    </div>
+    
+<!--Hero Information container-->
+    <div class="container">
+        <!--Hero A column-->
+        <div class="row">
+        <div class="col-6">
+           <div class="card-body">
+               <form>
+                   <div class="form-group">
+                       <label for="heroA"> Hero A</label>
+                       <input type="text" class="form-control" id="heroA" placeholder="Enter Hero Name">
+                   </div>
+               </form>
+               <!--This is where the information will display-->
+               
+
+               <button type="button" id="heroAbtn">Search A</button>
+               </div>
+           </div>
+
+            <!--Hero B column-->
+        <div class="col-6">
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="heroA"> Hero B</label>
+                            <input type="text" class="form-control" id="heroB" placeholder="Enter Hero Name">
+                        </div>
+                    </form>
+                    <!--This is where the information will display-->
+
+               <button type="button" id="heroBbtn">Search B</button>
+                </div>
+             </div>
+        </div>
+       
+
+         
+    </div>
+
+
+</body>
+
+</html>
