@@ -28,7 +28,7 @@ var heroArray = [""];
 
 function searchSuperHero (superhero) {
 
-    var queryURL = "https://superheroapi.com/api/10157235138196007/search/name" + superhero;
+    var queryURL = "https://superheroapi.com/api/10157235138196007/search/name";
     $.ajax({
         url: queryURL,
         method: "GET"
