@@ -23,32 +23,72 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-// Initial values
-var charAlpha = "";
-var charBeta = "";
+
 
 // Array of Superhero's
-var heroArray = [""];
+var heroArray = ["Hulk", "Ironman", "Thanos", "Spiderman"];
 
 
-// We grab the text from the input box
-var charAlpha = $("#hero-input").val().trim();
-var charBeta = $("#hero-input").val().trim();
+function displayheroinfo(heroPick) {
+  // console.log("my function works");
 
-  function displayheroinfo () {
-
-  var queryURL = "https://superheroapi.com/api/10157235138196007/search/name";
+    
+    var queryURL = "https://superheroapi.com/api/10157235138196007/search/" + heroPick 
+    console.log(queryURL);
 
   $.ajax({
     url: queryURL,
-    method: "GET"
-  }).then(function(response) {
+    method: "GET",
+    
+  }).then(function (response) {
+     console.log(response);
 
-    console.log(response);
+     // Creating a div to hold the hero
+     var heroDiv = $("<div class='hero'>");
 
-  });
+     // Retrieving the URL for the image
+     var imgURL = response.Poster;
 
+     // Creating an element to hold the image
+     var image = $("<img>").attr("src", imgURL);
+
+     // Appending the image
+     heroDiv.append(image);
+
+     // Storing the rating data
+     var stats = response.powerstats;
+
+     // Creating an element to have the stats displayed
+     var pOne = $("<p>").text("Power Stats: " + stats);
+
+     // Displaying the stats
+     heroDiv.append(pOne);
+
+   });
 }
 
-  $("#find-hero").on("click", function (superhero) {
-    event.preventDefault();
+
+$("#heroAbtn").on("click", function (event) {
+  event.preventDefault();
+  console.log("click");
+
+  var heroA = $("#heroA").val();
+  console.log(heroA);
+
+  displayheroinfo(heroA);
+
+  heroArray.push(heroA);
+})
+
+$("#heroBbtn").on("click", function (event) {
+  event.preventDefault();
+  console.log("click");
+
+  var heroB = $("#heroB").val();
+  console.log(heroB);
+
+  displayheroinfo(heroB);
+  console.log(heroB);
+
+  heroArray.push(heroB);
+})
