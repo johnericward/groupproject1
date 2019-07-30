@@ -26,45 +26,107 @@ firebase.initializeApp(firebaseConfig);
 
 
 // Array of Superhero's
-var heroArray = ["Hulk", "Ironman", "Thanos", "Spiderman"];
+var heroArray = [""];
 
 
 function displayheroinfo(heroPick) {
   // console.log("my function works");
 
-    
-    var queryURL = "https://superheroapi.com/api/10157235138196007/search/" + heroPick 
-    console.log(queryURL);
+
+  var queryURL = "https://cors-anywhere.herokuapp.com/https://superheroapi.com/api/10157235138196007/search/" + heroPick
+  console.log(queryURL);
+
+
+  var charImageCSS = $(".charImage")
+  var powerStatsCSS = $(".powerStats")
+
+  var charImageBeta = $(".charImageTwo")
+  var powerStatsBeta = $(".powerStatsTwo")
 
   $.ajax({
     url: queryURL,
     method: "GET",
+    dataType: 'json'
+
+  }).then(function (playerOne) {
+    console.log(playerOne);
+
     
-  }).then(function (response) {
-     console.log(response);
 
-     // Creating a div to hold the hero
-     var heroDiv = $("<div class='hero'>");
+    var charImage = playerOne.results[0].image;
+    console.log(charImage.url);
 
-     // Retrieving the URL for the image
-     var imgURL = response.Poster;
+    var powerStats = playerOne.results[0].powerstats;
+    console.log(powerStats.combat);
 
-     // Creating an element to hold the image
-     var image = $("<img>").attr("src", imgURL);
+    
+    charImageCSS.attr("src", charImage.url);
 
-     // Appending the image
-     heroDiv.append(image);
+    powerStatsCSS.attr(powerStats);
+    var combat = $("<p>").text("Combat: " + powerStats.combat);
+    console.log(powerStats.combat);
 
-     // Storing the rating data
-     var stats = response.powerstats;
+    var durability = $("<p>").text("Durability: " + powerStats.durability);
+    console.log(powerStats.durability);
 
-     // Creating an element to have the stats displayed
-     var pOne = $("<p>").text("Power Stats: " + stats);
+    var intelligence = $("<p>").text("Intelligence: " + powerStats.intelligence);
+    console.log(powerStats.intelligence);
 
-     // Displaying the stats
-     heroDiv.append(pOne);
+    var power = $("<p>").text("Power: " + powerStats.power);
+    console.log(powerStats.power);
 
-   });
+    var speed = $("<p>").text("Speed: " + powerStats.speed);
+    console.log(powerStats.speed);
+
+    var strength = $("<p>").text("Strength: " + powerStats.strength);
+    console.log(powerStats.strength);
+
+    $(".powerStats").append(combat);
+    $(".powerStats").append(durability);
+    $(".powerStats").append(intelligence);
+    $(".powerStats").append(power);
+    $(".powerStats").append(speed);
+    $(".powerStats").append(strength); 
+  
+
+}).then(function (playerTwo) {
+  console.log(playerTwo);
+
+  var charImageTwo = playerTwo.results[0].image;
+    console.log(charImageTwo.url);
+
+    var powerStatsTwo = playerTwo.results[0].powerstats;
+    console.log(powerStatsTwo.combat);
+
+    charImageBeta.attr("src", charImageTwo.url);
+
+    powerStatsBeta.attr(powerStatsTwo);
+    var combat = $("<p>").text("Combat: " + powerStatsTwo.combat);
+    console.log(powerStatsTwo.combat);
+
+    var durability = $("<p>").text("Durability: " + powerStatsTwo.durability);
+    console.log(powerStatsTwo.durability);
+
+    var intelligence = $("<p>").text("Intelligence: " + powerStatsTwo.intelligence);
+    console.log(powerStatsTwo.intelligence);
+
+    var power = $("<p>").text("Power: " + powerStatsTwo.power);
+    console.log(powerStatsTwo.power);
+
+    var speed = $("<p>").text("Speed: " + powerStatsTwo.speed);
+    console.log(powerStatsTwo.speed);
+
+    var strength = $("<p>").text("Strength: " + powerStatsTwo.strength);
+    console.log(powerStatsTwo.strength);
+
+    $(".powerStatsTwo").append(combat);
+    $(".powerStatsTwo").append(durability);
+    $(".powerStatsTwo").append(intelligence);
+    $(".powerStatsTwo").append(power);
+    $(".powerStatsTwo").append(speed);
+    $(".powerStatsTwo").append(strength);
+
+});
 }
 
 
