@@ -6,7 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Hero Hub</title>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js"></script>
 
@@ -26,7 +26,10 @@
         crossorigin="anonymous"></script>
 
     <!--CSS link-->
-    <link rel="stylesheet" href="C:\Users\s_mar\GroupProject1\groupproject1\assets\css\style.css">
+    <link rel="stylesheet" href="assets\css\style.css">
+
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -54,28 +57,28 @@
         <!--Hero A column-->
         <div class="row">
             <div class="col-6">
-                <div class="card-body">
+                <div class="card">
                     <form>
                         <div class="form-group">
                             <label for="heroA"> Hero A</label>
                             <input type="text" class="form-control" id="heroA" placeholder="Enter Hero Name">
                         </div>
                     </form>
-                    <!--This is where the information will display-->
-
-
                     <button type="button" id="heroAbtn">Search A</button>
-                    <img src= "" class= "charImage">
+
+                    <!--This is where the information will display-->
                     <br>
-                    <div class= "powerStats">
-                        
+                    <div class="container" style="width:18rem;">
+                        <img src=" " class="charImage">
                     </div>
+                    <br>
+                    <div class="powerStats"></div>
                 </div>
             </div>
 
             <!--Hero B column-->
             <div class="col-6">
-                <div class="card-body">
+                <div class="card">
                     <form>
                         <div class="form-group">
                             <label for="heroB"> Hero B</label>
@@ -83,21 +86,21 @@
                         </div>
                     </form>
                     <!--This is where the information will display-->
-                    <div id= "stats-view"></div>
+                    <div id="stats-view"></div>
 
                     <button type="button" id="heroBbtn">Search B</button>
-                    <img src= "" class= "charImageTwo">
+                    <img src="" class="charImageTwo">
                     <br>
-                    <div class= "powerStatsTwo">
+                    <div class="powerStatsTwo">
+                    </div>
                 </div>
             </div>
+
+
+
         </div>
 
-
-
-    </div>
-
-    <script src="assets/javascript/main.js"></script>
+        <script src="assets/javascript/main.js"></script>
 
 </body>
 
