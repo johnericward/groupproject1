@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Super Comparisons</title>
+
+    <title>Hero Hub</title>
+  
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js"></script>
 
@@ -17,9 +18,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
@@ -28,12 +27,17 @@
         crossorigin="anonymous"></script>
 
     <!--CSS link-->
-    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="stylesheet" href="assets\css\style.css">
+
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
     <!--main container-->
-     <div class="container-fluid">
+    <div class="container-fluid">
         <!--Card that will hold the weather app-->
         <div class="card" style="width:18rem; float:right;">
             <div class="card-header">
@@ -65,45 +69,51 @@
             </div>
         </div>
     </div>
-    
-<!--Hero Information container-->
+
+    <!--Hero Information container-->
     <div class="container">
         <!--Hero A column-->
         <div class="row">
-        <div class="col-6">
-           <div class="card-body">
-               <form>
-                   <div class="form-group">
-                       <label for="heroA"> Hero A</label>
-                       <input type="text" class="form-control" id="heroA" placeholder="Enter Hero Name">
-                   </div>
-               </form>
-               <!--This is where the information will display-->
-               
-
-               <button type="button" id="heroAbtn">Search A</button>
-               </div>
-           </div>
-
-            <!--Hero B column-->
-        <div class="col-6">
-                <div class="card-body">
+            <div class="col-6">
+                <div class="card">
                     <form>
                         <div class="form-group">
-                            <label for="heroA"> Hero B</label>
+                            <label for="heroA"> Hero A</label>
+                            <input type="text" class="form-control" id="heroA" placeholder="Enter Hero Name">
+                        </div>
+                    </form>
+                    <button type="button" id="heroAbtn">Search A</button>
+
+                    <!--This is where the information will display-->
+                    <br>
+                    <div class="container" style="width:18rem;">
+                        <img src=" " class="charImage">
+                    </div>
+                    <br>
+                    <div class="powerStats"></div>
+                </div>
+            </div>
+
+            <!--Hero B column-->
+            <div class="col-6">
+                <div class="card">
+                    <form>
+                        <div class="form-group">
+                            <label for="heroB"> Hero B</label>
                             <input type="text" class="form-control" id="heroB" placeholder="Enter Hero Name">
                         </div>
                     </form>
                     <!--This is where the information will display-->
+                    <div id="stats-view"></div>
 
-               <button type="button" id="heroBbtn">Search B</button>
+                    <button type="button" id="heroBbtn">Search B</button>
+                    <img src="" class="charImageTwo">
+                    <br>
+                    <div class="powerStatsTwo">
+                    </div>
                 </div>
-             </div>
-        </div>
-       
+            </div>
 
-         
-    </div>
 
     <!--JS LINKS AND STUFFF WHOOOOOOOOO!!!!-->
 <!-- jquery -->
@@ -114,6 +124,10 @@
 <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 <!-- my javascript -->
 <script type="text/javascript" src="assets/javascript/main.js"></script>
+
+        </div>
+
+        <script src="assets/javascript/main.js"></script>
 
 </body>
 
