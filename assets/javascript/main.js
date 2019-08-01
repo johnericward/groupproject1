@@ -115,19 +115,10 @@ firebase.initializeApp(firebaseConfig);
 var heroArray = [""];
 
 
-function displayheroinfo(heroPick) {
-  // console.log("my function works");
-
-
+function displayheroinfo(heroPick, classname) {
+  var classname = classname
   var queryURL = "https://cors-anywhere.herokuapp.com/https://superheroapi.com/api/10157235138196007/search/" + heroPick
   console.log(queryURL);
-
-
-  var charImageCSS = $(".charImage")
-  var powerStatsCSS = $(".powerStats")
-
-  var charImageBeta = $(".charImageTwo")
-  var powerStatsBeta = $(".powerStatsTwo")
 
   $.ajax({
     url: queryURL,
@@ -137,107 +128,121 @@ function displayheroinfo(heroPick) {
   }).then(function (playerOne) {
     console.log(playerOne);
 
-    
+    getHeroInfo(playerOne, classname);
 
-    var charImage = playerOne.results[0].image;
-    console.log(charImage.url);
-
-    var powerStats = playerOne.results[0].powerstats;
-    console.log(powerStats.combat);
-
-    
-    charImageCSS.attr("src", charImage.url);
-
-    powerStatsCSS.attr(powerStats);
-    var combat = $("<p>").text("Combat: " + powerStats.combat);
-    console.log(powerStats.combat);
-
-    var durability = $("<p>").text("Durability: " + powerStats.durability);
-    console.log(powerStats.durability);
-
-    var intelligence = $("<p>").text("Intelligence: " + powerStats.intelligence);
-    console.log(powerStats.intelligence);
-
-    var power = $("<p>").text("Power: " + powerStats.power);
-    console.log(powerStats.power);
-
-    var speed = $("<p>").text("Speed: " + powerStats.speed);
-    console.log(powerStats.speed);
-
-    var strength = $("<p>").text("Strength: " + powerStats.strength);
-    console.log(powerStats.strength);
-
-    $(".powerStats").append(combat);
-    $(".powerStats").append(durability);
-    $(".powerStats").append(intelligence);
-    $(".powerStats").append(power);
-    $(".powerStats").append(speed);
-    $(".powerStats").append(strength); 
   
-
-}).then(function (playerTwo) {
-  console.log(playerTwo);
-
-  var charImageTwo = playerTwo.results[0].image;
-    console.log(charImageTwo.url);
-
-    var powerStatsTwo = playerTwo.results[0].powerstats;
-    console.log(powerStatsTwo.combat);
-
-    charImageBeta.attr("src", charImageTwo.url);
-
-    powerStatsBeta.attr(powerStatsTwo);
-    var combat = $("<p>").text("Combat: " + powerStatsTwo.combat);
-    console.log(powerStatsTwo.combat);
-
-    var durability = $("<p>").text("Durability: " + powerStatsTwo.durability);
-    console.log(powerStatsTwo.durability);
-
-    var intelligence = $("<p>").text("Intelligence: " + powerStatsTwo.intelligence);
-    console.log(powerStatsTwo.intelligence);
-
-    var power = $("<p>").text("Power: " + powerStatsTwo.power);
-    console.log(powerStatsTwo.power);
-
-    var speed = $("<p>").text("Speed: " + powerStatsTwo.speed);
-    console.log(powerStatsTwo.speed);
-
-    var strength = $("<p>").text("Strength: " + powerStatsTwo.strength);
-    console.log(powerStatsTwo.strength);
-
-    $(".powerStatsTwo").append(combat);
-    $(".powerStatsTwo").append(durability);
-    $(".powerStatsTwo").append(intelligence);
-    $(".powerStatsTwo").append(power);
-    $(".powerStatsTwo").append(speed);
-    $(".powerStatsTwo").append(strength);
-
-});
+  })
 }
+
 
 
 $("#heroAbtn").on("click", function (event) {
   event.preventDefault();
+  $( ".powerStats p" ).empty();
   console.log("click");
 
   var heroA = $("#heroA").val();
   console.log(heroA);
 
-  displayheroinfo(heroA);
+  displayheroinfo(heroA, '.powerStats');
 
   heroArray.push(heroA);
 })
 
 $("#heroBbtn").on("click", function (event) {
   event.preventDefault();
+  $( ".powerStatsTwo p" ).empty();
   console.log("click");
 
   var heroB = $("#heroB").val();
   console.log(heroB);
 
-  displayheroinfo(heroB);
+  displayheroinfo(heroB, '.powerStatsTwo');
   console.log(heroB);
 
   heroArray.push(heroB);
 })
+
+$("#combatbtn").on("click", function (event) {
+  event.preventDefault();
+
+  var heroA = $(".powerStats .combat").data("combat");
+  var heroB = $(".powerStatsTwo .combat").data("combat");
+  var heroAName = $(".powerStats .name").data("name");
+  var heroBName = $(".powerStatsTwo .name").data("name");
+  console.log(heroA);
+  console.log(heroB);
+
+  if (heroA > heroB) {
+    alert(heroAName + " Winner A");
+  } else if (heroA < heroB) {
+    alert(heroBName + " Winner B");
+  } else  
+    alert("Draw");
+  
+})
+
+function getHeroInfo(playerOne, classname) {
+  console.log('classname: ' + classname)
+
+  if (classname === ".powerStats") {
+    var charImageCSS = $(".charImage");
+    var powerStatsCSS = $(".powerStats")
+  } else if (classname === ".powerStatsTwo"){
+    var charImageCSS = $(".charImageTwo");
+    var powerStatsCSS = $(".powerStatsTwo")
+  }
+  
+
+ console.log(playerOne);
+  var charImage = playerOne.results[0].image;
+  console.log(charImage.url);
+  var powerStats = playerOne.results[0].powerstats;
+  console.log(powerStats.combat);
+  console.log(playerOne.results[0].name);
+
+
+  charImageCSS.attr("src", charImage.url);
+
+  powerStatsCSS.attr(powerStats);
+  var name = $("<p>").text("Name: " + playerOne.results[0].name);
+  name.addClass("name")
+  name.attr("data-name", playerOne.results[0].name)
+
+  var combat = $("<p>").text("Combat: " + powerStats.combat);
+  combat.addClass("combat")
+  combat.attr("data-combat", powerStats.combat)
+  console.log(powerStats.combat);
+
+  var durability = $("<p>").text("Durability: " + powerStats.durability);
+  console.log(powerStats.durability);
+
+  var intelligence = $("<p>").text("Intelligence: " + powerStats.intelligence);
+  console.log(powerStats.intelligence);
+
+  var power = $("<p>").text("Power: " + powerStats.power);
+  console.log(powerStats.power);
+
+  var speed = $("<p>").text("Speed: " + powerStats.speed);
+  console.log(powerStats.speed);
+
+  var strength = $("<p>").text("Strength: " + powerStats.strength);
+  console.log(powerStats.strength);
+
+  $(classname).append(name);
+  $(classname).append(combat);
+  $(classname).append(durability);
+  $(classname).append(intelligence);
+  $(classname).append(power);
+  $(classname).append(speed);
+  $(classname).append(strength); 
+
+
+
+
+};
+
+  heroArray.push(heroB);
+})
+
 
