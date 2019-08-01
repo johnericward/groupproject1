@@ -243,6 +243,6 @@ function getHeroInfo(playerOne, classname) {
 };
 
   heroArray.push(heroB);
-})
+// });
 
 
