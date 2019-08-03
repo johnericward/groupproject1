@@ -134,12 +134,13 @@ function displayheroinfo(heroPick, classname) {
   })
 }
 
-
+winLoseHolder = $("#winLose");
 
 $("#heroAbtn").on("click", function (event) {
   event.preventDefault();
   $( ".powerStats p" ).empty();
   console.log("click");
+  
 
   var heroA = $("#heroA").val();
   console.log(heroA);
@@ -149,13 +150,13 @@ $("#heroAbtn").on("click", function (event) {
   heroArray.push(heroA);
 })
 
-winLoseHolder = $("#winLose");
 
 
 $("#heroBbtn").on("click", function (event) {
   event.preventDefault();
   $( ".powerStatsTwo p" ).empty();
   console.log("click");
+  
 
   var heroB = $("#heroB").val();
   console.log(heroB);
@@ -168,7 +169,7 @@ $("#heroBbtn").on("click", function (event) {
 
 $("#combatbtn").on("click", function (event) {
   event.preventDefault();
-
+  
   var heroA = $(".powerStats .combat").data("combat");
   var heroB = $(".powerStatsTwo .combat").data("combat");
   var heroAName = $(".powerStats .name").data("name");
@@ -178,11 +179,16 @@ $("#combatbtn").on("click", function (event) {
 
   if (heroA > heroB) {
     winLoseHolder.html("THE WINNER IS: " + heroAName);
+    
   } else if (heroA < heroB) {
     winLoseHolder.html("THE WINNER IS: " + heroBName);
+    
   } else  
     winLoseHolder.html("IT'S A DRAW!!! " + "NEITHER " + heroAName + " NOR " + heroBName + " WAS VICTORIOUS.");
+    
   
+    winLoseHolder = $("#winLose");
+
 })
 
 function getHeroInfo(playerOne, classname) {
