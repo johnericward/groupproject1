@@ -63,6 +63,9 @@ $("#heroAbtn").on("click", function (event) {
   heroArray.push(heroA);
 })
 
+winLoseHolder = $("#winLose");
+
+
 $("#heroBbtn").on("click", function (event) {
   event.preventDefault();
   $( ".powerStatsTwo p" ).empty();
@@ -88,11 +91,11 @@ $("#combatbtn").on("click", function (event) {
   console.log(heroB);
 
   if (heroA > heroB) {
-    alert(heroAName + " Winner A");
+    winLoseHolder.html("THE WINNER IS: " + heroAName);
   } else if (heroA < heroB) {
-    alert(heroBName + " Winner B");
+    winLoseHolder.html("THE WINNER IS: " + heroBName);
   } else  
-    alert("Draw");
+    winLoseHolder.html("IT'S A DRAW!!! " + "NEITHER " + heroAName + " NOR " + heroBName + " WAS VICTORIOUS.");
   
 })
 
