@@ -1,6 +1,7 @@
 *{
     font-family: 'Permanent Marker', cursive;
-    background-image: url()
+    color:white;
+    border-radius: 12px;
 }
 
 .charImage{ 
@@ -12,6 +13,12 @@
     text-align: center;
     border-radius: 12px;
 }
+.card-body {
+    border-radius: 12px;
+    border-color: black;
+    color: black;
+    background-color: #F2CF6C;
+}
 .form-group{
     padding: 5px;
     border-radius: 12px;
@@ -21,11 +28,13 @@
     border-color: black;
     border-radius: 12px;
 }
-
+#jumbo{
+    background-image: url("../images/jumbotron-background.png");
+}
 #heroAbtn{
     border-radius: 12px;
     display: inline-block;
-    background-color: transparent;
+    background-color: orange;
     border: 2px solid black;
     transition-duration: 0.4s;
     padding: 10px;
@@ -34,4 +43,51 @@
 #heroAbtn:hover{
     background-color: black;
     color: white;
+}
+
+#heroBbtn {
+    border-radius: 12px;
+    display: inline-block;
+    background-color: orange;
+    border: 2px solid black;
+    transition-duration: 0.4s;
+    padding: 10px;
+    font-size: 16px;
+}
+#heroBbtn:hover{
+    background-color: black;
+    color: white;
+}
+.weatherZipButton {
+    border-radius: 12px;
+    display: inline-block;
+    background-color: orange;
+    border: 2px solid black;
+    transition-duration: 0.4s;
+    padding: 10px;
+    font-size: 16px;
+}
+.weatherZipButton:hover{
+    background-color: black;
+    color: white;
+}
+.card-header {
+    border-radius: 12px;
+    background-color: orange;
+    opacity: 60%;
+}
+.weatherZipSearch {
+    font-size: 16px;
+    border-color: black;
+    border-radius: 12px;
+    color: black;
+    text-align: center;
+}
+.weatherTemp{
+    color:black;
+    font-size: 24px;
+}
+.weatherType{
+    color:black;
+    font-size: 24px;
 }
